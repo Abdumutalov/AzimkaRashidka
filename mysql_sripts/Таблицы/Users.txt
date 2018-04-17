@@ -1,0 +1,33 @@
+
+--
+-- Структура таблицы `Users`
+--
+
+CREATE TABLE `Users` (
+  `Id` int(10) NOT NULL,
+  `Login` varchar(60) NOT NULL COMMENT 'Логин',
+  `Password` varchar(120) NOT NULL COMMENT 'Пароль',
+  `Surname` varchar(60) NOT NULL COMMENT 'Фамилия',
+  `Name` varchar(60) NOT NULL COMMENT 'Имя',
+  `MiddleName` varchar(60) NOT NULL COMMENT 'Отчество',
+  `Responsibility` int(10) NOT NULL COMMENT 'Должность',
+  `Roles` int(10) NOT NULL COMMENT 'Роль'
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `Users`
+--
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `Responsibility` (`Responsibility`);
+
+--
+-- Ограничения внешнего ключа таблицы `Users`
+--
+
+ALTER TABLE `Users` ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`Responsibility`) REFERENCES `R_Responsibility` (`Code`);
+COMMIT;

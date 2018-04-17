@@ -1,0 +1,12 @@
+﻿CREATE TABLE `R_Responsibility` (
+  `Code` int(10) NOT NULL COMMENT 'Уникальный код',
+  `Name` varchar(120) NOT NULL COMMENT 'Наименнование должного лица ',
+  `ShortName` varchar(60) NOT NULL COMMENT 'Краткое наименование') 
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Справочник';
+
+ALTER TABLE `R_Responsibility` ADD PRIMARY KEY (`Code`);
+
+INSERT INTO `R_Responsibility`(`Code`, `Name`, `ShortName`) VALUES (1,'Инженер программист','Программист');
+INSERT INTO `R_Responsibility`(`Code`, `Name`, `ShortName`) VALUES (2,'Ведущий программист','Программист');
+
+COMMIT;
